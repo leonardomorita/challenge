@@ -18,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        label.custom-file-label::after {
+            content: "Procurar"
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -35,7 +41,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-                    
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
