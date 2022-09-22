@@ -5,13 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Titulo Postagem</div>
-        
+                <div class="card-header">{{ $postagem->titulo }}</div>
+
                 <div class="card-body">
-                    <img src="..." class="card-img-top" alt="...">
-                    <p class="card-text">Descrição </p>
+                    <img src={{ asset("storage/images/$postagem->imagem") }} class="card-img-top" alt="foto-{{ $postagem->id }}">
+                    <p class="card-text">{{ $postagem->descricao }}</p>
                 </div>
-                
             </div>
         </div>
     </div>
