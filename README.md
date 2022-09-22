@@ -13,7 +13,7 @@ Etapas para iniciar:
 
 1 - Clone o projeto:
 ```shell
-git clone https://github.com/ceisc/challenge.git challenge
+git clone https://github.com/leonardomorita/challenge.git challenge
 ```
 2 - Renomeie ".env.example" para ".env" e preencha os dados de conexão de sua base de dados local (DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD)
 
@@ -24,7 +24,13 @@ git clone https://github.com/ceisc/challenge.git challenge
 php artisan migrate
 php artisan db:seed
 ```
-5 - Configure seu ambiente local para acessar o arquivo root "public/index.php" OU abra um terminal na raíz do projeto e rode "php artisan serve"
+
+5 - Criar um link simbólico para salvar as imagens na pasta 'storage':
+```shell
+php artisan storage:link
+```
+
+6 - Configure seu ambiente local para acessar o arquivo root "public/index.php" OU abra um terminal na raíz do projeto e rode "php artisan serve"
 
 ## Agora, mãos a obra ^^
 
