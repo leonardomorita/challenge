@@ -12,12 +12,14 @@
                         + Nova
                     </button>
 
+                    @if (Session::has('message'))
+                        <div class="alert alert-success">
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
+
                     <div class="card-body">
                         {{-- <b>|| Adicione aqui uma listagem de postagens, com botão de publicar e remover ||</b> --}}
-
-                        @php
-                            // dd($postagens);
-                        @endphp
 
                         <table class="table">
                             <thead>
@@ -31,13 +33,41 @@
                             <tbody>
                                 @foreach ($postagens as $postagem)
                                     <tr>
-                                        <th scope="row">{{ $postagem->id }}</th>
-                                        <td><img src={{ asset("storage/images/$postagem->imagem") }} alt="foto-{{ $postagem->id }}" height="50px" width="50px"></td>
-                                        <td>{{ $postagem->titulo }}</td>
+                                        <th scope="row" class="align-middle">{{ $postagem->id }}</th>
+                                        <td class="align-middle"><img src={{ asset("storage/images/$postagem->imagem") }}
+                                                alt="foto-{{ $postagem->id }}" height="50px" width="50px"></td>
+                                        <td class="align-middle">{{ $postagem->titulo }}</td>
                                         <td>
-                                            <div class="row">
-                                                <div class="col col-3">Editar</div>
-                                                <div class="col col-4">Remover</div>
+                                            <div class="row mt-2">
+                                                <div class="col col-4">
+                                                    <form method="POST" action="{{ route('posts.publicar') }}">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $postagem->id }}">
+
+                                                        <button type="submit" class="btn" @if ($postagem->ativa == "S") disabled @endif>
+                                                            Publicar
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col col-4">
+                                                    <form method="GET" action="{{ route('posts.editar', ['id' => $postagem->id]) }}">
+                                                        <button type="submit" class="btn">
+                                                            Editar
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col col-4">
+                                                    <form method="POST" action="{{ route('posts.deletar', ['id' => $postagem->id]) }}"
+                                                        onsubmit="return confirm('Tem certeza que deseja remover?')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn">
+                                                            Remover
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
