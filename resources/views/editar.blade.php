@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="ativa"
-                                                id="nao" value="N" @if (!$postagem->ativa == 'N') checked @endif>
+                                                id="nao" value="N" @if ($postagem->ativa == 'N') checked @endif>
                                             <label class="form-check-label" for="nao">
                                                 Não
                                             </label>
