@@ -13,7 +13,7 @@ Etapas para iniciar:
 
 1 - Clone o projeto:
 ```shell
-git clone https://github.com/ceisc/challenge.git challenge
+git clone https://github.com/leonardomorita/challenge.git challenge
 ```
 2 - Renomeie ".env.example" para ".env" e preencha os dados de conexão de sua base de dados local (DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD)
 
