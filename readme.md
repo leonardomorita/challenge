@@ -24,7 +24,13 @@ git clone https://github.com/leonardomorita/challenge.git challenge
 php artisan migrate
 php artisan db:seed
 ```
-5 - Configure seu ambiente local para acessar o arquivo root "public/index.php" OU abra um terminal na raíz do projeto e rode "php artisan serve"
+
+5 - Criar um link simbólico para salvar as imagens na pasta 'storage':
+```shell
+php artisan storage:link
+```
+
+6 - Configure seu ambiente local para acessar o arquivo root "public/index.php" OU abra um terminal na raíz do projeto e rode "php artisan serve"
 
 ## Agora, mãos a obra ^^
 
