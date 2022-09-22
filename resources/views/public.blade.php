@@ -10,20 +10,26 @@
                     <div class="card-body">
                         {{-- <b>|| Adicione aqui as postagens ativas ||</b> --}}
 
-                        @forelse ($postagens as $postagem)
-                            <div class="card" style="width: 18rem;">
-                                <img src={{ asset("storage/images/$postagem->imagem") }} class="card-img-top" alt="foto-{{ $postagem->id }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $postagem->titulo }}</h5>
-                                    <p class="card-text">{{ strlen($postagem->descricao) > 100 ? substr($postagem->descricao, 0, 100) . '...' : $postagem->descricao }}</p>
-                                    <a href="{{ route('public.postagem', ['id' => $postagem->id]) }}" class="btn btn-primary">Abrir postagem</a>
+                        <div class="row">
+                            @forelse ($postagens as $postagem)
+                                <div class="card col-4">
+                                    <img src={{ asset("storage/images/$postagem->imagem") }} class="card-img-top"
+                                        alt="foto-{{ $postagem->id }}" width="100px" height="250px">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $postagem->titulo }}</h5>
+                                        <p class="card-text">
+                                            {{ strlen($postagem->descricao) > 100 ? substr($postagem->descricao, 0, 100) . '...' : $postagem->descricao }}
+                                        </p>
+                                        <a href="{{ route('public.postagem', ['id' => $postagem->id]) }}"
+                                            class="btn btn-primary">Abrir postagem</a>
+                                    </div>
                                 </div>
-                            </div>
-                        @empty
-                            <div class="alert alert-success">
-                                Nenhuma postagem ativa
-                            </div>
-                        @endforelse
+                            @empty
+                                <div class="col-12 alert alert-success">
+                                    Nenhuma postagem ativa
+                                </div>
+                            @endforelse
+                        </div>
                     </div>
                 </div>
             </div>

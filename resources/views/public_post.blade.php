@@ -8,7 +8,7 @@
                 <div class="card-header">{{ $postagem->titulo }}</div>
 
                 <div class="card-body">
-                    <img src={{ asset("storage/images/$postagem->imagem") }} class="card-img-top" alt="foto-{{ $postagem->id }}">
+                    <img src={{ asset("storage/images/$postagem->imagem") }} class="card-img-top" alt="foto-{{ $postagem->id }}" style="max-height: 500px;">
                     <p class="card-text">{{ $postagem->descricao }}</p>
                 </div>
             </div>
